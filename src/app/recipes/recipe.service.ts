@@ -29,7 +29,15 @@ export class RecipeService {
       ])
   ];
 
+  // todo: once connected to a real back end, recipes are fetched during the app loading
+  //private recipes: Recipe[] = [];
+
   constructor(private slService: ShoppingListService) {
+  }
+
+  setRecipes(recipes: Recipe[]){
+    this.recipes = recipes;
+    this.recipesChanged.next(this.recipes.slice());
   }
 
   getRecipes() {
